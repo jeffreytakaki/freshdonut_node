@@ -4,7 +4,9 @@ const passport = require('passport');
 const config = require('./config/keys');
 const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
+
 require('./models/User');
+require('./models/Store');
 require('./services/passport');
 
 mongoose.Promise = global.Promise;
@@ -20,10 +22,12 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }))
 
 
 require('./routes/authRoutes')(app);
+require('./routes/storeRoutes')(app);
 
 
 const PORT = process.env.PORT || 5000;

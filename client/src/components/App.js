@@ -7,20 +7,24 @@ import './App.css';
 
 import Header from './Header/Header'
 import Stores from './Stores/Stores'
+import AccountMain from './Account/AccountMain'
 
 class App extends Component {
     componentDidMount() {
         this.props.fetchUser();
+        //this.props.getStores();
+        //this.props.getUserStores();
     }
 
     render() {
         return (
 
-                <div className="container">
+                <div className="container-fluid">
                     <BrowserRouter>
                         <div>
                             <Header />
                             <Route path="/" component={Stores} exact={true} />
+                            <Route path="/account" component={AccountMain} exact={true} />
                         </div>
 
                     </BrowserRouter>
