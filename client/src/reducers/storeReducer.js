@@ -7,8 +7,6 @@ export default function(state = {}, action) {
             return action.payload || false;
         case GET_STORES:
             return action.payload || false;
-        case GET_USER_STORES:
-            return action.payload || false;
         default:
             return state;
 

@@ -28,6 +28,7 @@ const User = mongoose.model('User');
     };
 
     exports.deleteStore = async (req, res) => {
+        console.log('deleteStores')
         const store = await Store.findByIdAndRemove(req.body.storeid, (err, success) => {
             if(!err) {
                 res.json(success);

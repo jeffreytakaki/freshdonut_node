@@ -16,7 +16,7 @@ const StoreItem = (store) => (
                             <Link to="/edit/">Edit Store {`${store.storeId}`}</Link>
                         </div>
                         <div className="col-lg-6">
-                            <Link to="/edit">Delete Store</Link>
+                            <button onClick={() => store.deleteStore(store.storeId)}>Delete Store</button>
                         </div>
 
                     </div>

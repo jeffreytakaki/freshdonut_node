@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions'
-import AddForm from '../Form/CreateStore'
+
 import StoreItem from './StoreItem';
 
 class Stores extends React.Component {
@@ -52,7 +52,7 @@ class Stores extends React.Component {
                     <div className="">
                         Stores Section
                     </div>
-                    <AddForm />
+
                     {this.renderStores()}
                 </div>
         );

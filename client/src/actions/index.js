@@ -24,10 +24,17 @@ export const getUserStores = () => async dispatch => {
     dispatch({type: GET_USER_STORES, payload: res.data})
 }
 
-export const deleteStores = (id) => async dispatch => {
-    const res = await axios.post('/api/stores/deleteStore', {
+export const deleteStore = (id) => async dispatch => {
+    const res = await axios.post('/api/store/deleteStore', {
         storeid: id
     });
-    dispatch({type: DELETE_STORE, payload: res.data})
+
+    if(res.data) {
+        const stores = await axios.get('/api/stores/user'); //:id can be anything. server side will validate user is signed in
+        dispatch({type: GET_USER_STORES, payload: stores.data})
+    } else {
+        alert('We had a problem deleting your item. Please try again');
+        console.log('inside else')
+    }
 }
 

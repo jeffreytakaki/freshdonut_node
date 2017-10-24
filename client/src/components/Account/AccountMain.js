@@ -1,10 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import AddForm from '../Form/CreateStore'
 import StoreItem from '../Stores/StoreItem';
 
 
 class AccountMain extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.deleteStore = this.deleteStore.bind(this)
+    }
     componentWillMount() {
         this.props.getUserStores()
     }
@@ -19,6 +25,7 @@ class AccountMain extends React.Component {
                             storeId={store.id}
                             name={store.name}
                             description={store.description}
+                            deleteStore={this.deleteStore}
                     />
 
             )
@@ -34,15 +41,16 @@ class AccountMain extends React.Component {
 
     }
 
-    deleteStore(id) {
-        this.props.deleteStore(id)
+    deleteStore(storeid) {
+        this.props.deleteStore(storeid)
+
     }
 
     render() {
 
         return (
                 <div className="account-container">
-                    <h1>hello, from the other side</h1>
+                    <AddForm />
                     {this.renderStores()}
                 </div>
         );
@@ -51,6 +59,7 @@ class AccountMain extends React.Component {
 
 function mapStateToProps(state) {
     // get state from store and pass into Header as props
+    console.log('mapstatetoprops')
     return {
         auth: state.auth,
         userStores: state.userStores
