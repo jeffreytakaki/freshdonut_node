@@ -12,6 +12,7 @@ class AccountMain extends React.Component {
         this.deleteStore = this.deleteStore.bind(this)
     }
     componentWillMount() {
+
         this.props.getUserStores()
     }
 
@@ -47,10 +48,9 @@ class AccountMain extends React.Component {
     }
 
     render() {
-
         return (
                 <div className="account-container">
-                    <AddForm />
+                    <AddForm  />
                     {this.renderStores()}
                 </div>
         );
@@ -59,7 +59,6 @@ class AccountMain extends React.Component {
 
 function mapStateToProps(state) {
     // get state from store and pass into Header as props
-    console.log('mapstatetoprops')
     return {
         auth: state.auth,
         userStores: state.userStores

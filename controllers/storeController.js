@@ -17,7 +17,29 @@ const User = mongoose.model('User');
 
     exports.createStore = async (req, res) => {
         req.body.owner = req.user._id;
-        const store = await (new Store (req.body)).save();
+        //const store = await (new Store (req.body)).save();
+
+
+        var query = {};
+        var update = req.body;
+        var options = {
+            // Return the document after updates are applied
+            new: true,
+            // Create a document if one isn't found. Required
+            // for `setDefaultsOnInsert`
+            upsert: true,
+            setDefaultsOnInsert: true
+        };
+
+
+        const store = Store.findOneAndUpdate(query, update, options, function (error, doc) {
+            if(!error) {
+                console.log(doc)
+            } else {
+                console.log('error with findOneAndUpdate => ', error)
+            }
+
+        });
         res.json(store);
     };
 
@@ -28,7 +50,6 @@ const User = mongoose.model('User');
     };
 
     exports.deleteStore = async (req, res) => {
-        console.log('deleteStores')
         const store = await Store.findByIdAndRemove(req.body.storeid, (err, success) => {
             if(!err) {
                 res.json(success);

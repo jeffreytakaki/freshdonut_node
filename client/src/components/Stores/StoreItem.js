@@ -13,7 +13,7 @@ const StoreItem = (store) => (
                 <div className="col-lg-12">
                     <div className="row">
                         <div className="col-lg-6">
-                            <Link to="/edit/">Edit Store {`${store.storeId}`}</Link>
+                            <Link to={`/store/${store.storeId}`}>Edit Store</Link>
                         </div>
                         <div className="col-lg-6">
                             <button onClick={() => store.deleteStore(store.storeId)}>Delete Store</button>

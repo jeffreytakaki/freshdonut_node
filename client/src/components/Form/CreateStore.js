@@ -6,12 +6,25 @@ class addStoreForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: '',
-            description: ''
+            _id: '',
+            name:'',
+            description: '',
+            owner: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        if(this.props.storeitem) {
+            this.setState({
+                _id: this.props.storeitem.id,
+                name: this.props.storeitem.name,
+                description: this.props.storeitem.description,
+                owner: this.props.storeitem.owner
+            })
+        }
     }
 
     handleChange(e) {
@@ -20,11 +33,11 @@ class addStoreForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log(this.state)
         this.props.addStore(this.state)
     }
 
     render() {
+
         return (
                 <form onSubmit={this.handleSubmit}>
                     <label>

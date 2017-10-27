@@ -7,6 +7,7 @@ export const fetchUser = () => async dispatch => {
 }
 
 export const addStore = (state) => async dispatch => {
+    console.log(state)
     const res = await axios.post('/api/store/addStore', {
         name: state.name,
         description: state.description
@@ -34,7 +35,6 @@ export const deleteStore = (id) => async dispatch => {
         dispatch({type: GET_USER_STORES, payload: stores.data})
     } else {
         alert('We had a problem deleting your item. Please try again');
-        console.log('inside else')
     }
 }
 

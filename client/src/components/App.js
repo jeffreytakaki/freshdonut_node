@@ -7,6 +7,7 @@ import './App.css';
 
 import Header from './Header/Header'
 import Stores from './Stores/Stores'
+import Store from './Stores/Store'
 import AccountMain from './Account/AccountMain'
 
 class App extends Component {
@@ -24,7 +25,9 @@ class App extends Component {
                         <div>
                             <Header />
                             <Route path="/" component={Stores} exact={true} />
-                            <Route path="/account" component={AccountMain} exact={true} />
+                            <Route path="/account" component={AccountMain} exact={true}/>
+                            <Route path="/store/:id" component={Store} exact={true}/>
+
                         </div>
 
                     </BrowserRouter>
