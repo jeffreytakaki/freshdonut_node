@@ -38,3 +38,15 @@ export const deleteStore = (id) => async dispatch => {
     }
 }
 
+
+export const addDonut = (state) => async dispatch => {
+    const res = await axios.post('/api/donut/addDonut', {
+        _id: state._id,
+        name: state.name,
+        description: state.description
+    });
+
+    console.log('res.data => ', res.data)
+    dispatch({type: ADD_STORE, payload: res.data})
+}
+

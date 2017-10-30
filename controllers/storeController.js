@@ -5,13 +5,11 @@ const User = mongoose.model('User');
 
     exports.getStores = async (req, res) => {
         var stores = await Store.find();
-        console.log('getStores', stores);
         res.json(stores);
     };
 
     exports.getStoresByOwner = async (req, res) => {
         var stores = await Store.find({owner: req.user._id})
-        console.log(stores)
         res.json(stores)
     }
 

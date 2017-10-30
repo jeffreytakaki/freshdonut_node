@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 
 require('./models/User');
 require('./models/Store');
+require('./models/Donut');
 require('./services/passport');
 
 mongoose.Promise = global.Promise;
@@ -28,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 require('./routes/authRoutes')(app);
 require('./routes/storeRoutes')(app);
+require('./routes/donutRoutes')(app);
 
 
 const PORT = process.env.PORT || 5000;

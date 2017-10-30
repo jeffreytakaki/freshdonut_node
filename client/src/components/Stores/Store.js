@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions'
 import AddForm from '../Form/CreateStore'
+import AddDonutForm from '../Form/CreateDonut'
 
 class Store extends React.Component {
     constructor(props) {
@@ -33,6 +34,7 @@ class Store extends React.Component {
                 <div className="stores-container">
                     <h1>hello</h1>
                     <AddForm storeitem={this.state.storeitem} />
+                    <AddDonutForm storeitem={this.state.storeitem}/>
                 </div>
         );
     }

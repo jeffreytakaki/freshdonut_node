@@ -16,5 +16,6 @@ module.exports = (app) => {
     app.post('/api/store/deleteStore', catchErrors(storeController.deleteStore));
 
 
+
 };
 

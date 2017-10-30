@@ -15,7 +15,8 @@ const storeSchema = new Schema({
         type: mongoose.Schema.ObjectId,
         ref: 'User',
         required: 'You must supply an author'
-    }
+    },
+    donuts: []
 
 }, {
     toJSON: { virtuals: true},
