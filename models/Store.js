@@ -3,6 +3,11 @@ const { Schema } = mongoose;
 
 const storeSchema = new Schema({
     name: String,
+    address: {
+        street: String,
+        zipcode: String,
+        state: String
+    },
     created: {
         type: Date,
         default: Date.now

@@ -4,6 +4,8 @@ import * as actions from '../../actions'
 import AddForm from '../Form/CreateStore'
 import AddDonutForm from '../Form/CreateDonut'
 
+import DonutItem from './DonutItem';
+
 class Store extends React.Component {
     constructor(props) {
         super(props)
@@ -11,6 +13,8 @@ class Store extends React.Component {
         this.state = {
             storeitem: ''
         }
+
+        this.renderDonuts = this.renderDonuts.bind(this)
 
 
     }
@@ -28,13 +32,41 @@ class Store extends React.Component {
         }
 
     }
+    renderDonuts(storeitem) {
+
+        if(this.state.storeitem) {
+            let collection = this.state.storeitem.donuts;
+            let donuts = collection.map((donut) =>
+
+                    <DonutItem
+                            key={Math.ceil(Math.random()*100)}
+                            name={donut.name}
+                            description={donut.description}
+
+                    />
+
+            )
+
+            return (
+                    <div className="row donut-list-container">{donuts}</div>
+            )
+        } else {
+            return (
+                    <div className="donut-list-container">You have no stores</div>
+            )
+        }
+
+
+    }
 
     render() {
         return (
                 <div className="stores-container">
-                    <h1>hello</h1>
+                    <h1>{this.state.storeitem.name}</h1>
                     <AddForm storeitem={this.state.storeitem} />
                     <AddDonutForm storeitem={this.state.storeitem}/>
+                    { this.renderDonuts(this.state.storeitem) }
+
                 </div>
         );
     }

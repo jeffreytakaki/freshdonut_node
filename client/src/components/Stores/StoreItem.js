@@ -10,6 +10,7 @@ const StoreItem = (store) => (
                 <div className="col-lg-12">
                     <h3>{`${store.description}`}</h3>
                 </div>
+                {(store.showaccount) ? (
                 <div className="col-lg-12">
                     <div className="row">
                         <div className="col-lg-6">
@@ -21,6 +22,7 @@ const StoreItem = (store) => (
 
                     </div>
                 </div>
+                ) : (null)}
             </div>
 
         </div>

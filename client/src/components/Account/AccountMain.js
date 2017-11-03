@@ -10,6 +10,7 @@ class AccountMain extends React.Component {
         super(props)
 
         this.deleteStore = this.deleteStore.bind(this)
+        this.addStore = this.addStore.bind(this)
     }
     componentWillMount() {
 
@@ -22,11 +23,12 @@ class AccountMain extends React.Component {
             let stores = collection.map((store) =>
 
                     <StoreItem
-                            key={Math.ceil(Math.random()*100)}
+                            key={store.id}
                             storeId={store.id}
                             name={store.name}
                             description={store.description}
                             deleteStore={this.deleteStore}
+                            showaccount={true}
                     />
 
             )
@@ -42,6 +44,9 @@ class AccountMain extends React.Component {
 
     }
 
+    addStore(store) {
+        this.props.addStore(store)
+    }
     deleteStore(storeid) {
         this.props.deleteStore(storeid)
 
@@ -50,7 +55,7 @@ class AccountMain extends React.Component {
     render() {
         return (
                 <div className="account-container">
-                    <AddForm  />
+                    <AddForm addUserStore={this.addStore} />
                     {this.renderStores()}
                 </div>
         );
@@ -59,6 +64,7 @@ class AccountMain extends React.Component {
 
 function mapStateToProps(state) {
     // get state from store and pass into Header as props
+    console.log('mapStateToProps User Stores =>', state)
     return {
         auth: state.auth,
         userStores: state.userStores

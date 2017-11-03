@@ -15,29 +15,32 @@ const User = mongoose.model('User');
 
     exports.createStore = async (req, res) => {
         req.body.owner = req.user._id;
-        //const store = await (new Store (req.body)).save();
+        let store;
 
+        if(req.body._id) { //find by id and save
+            var query = {_id: req.body._id};
+            var update = req.body;
+            var options = {
+                // Return the document after updates are applied
+                new: true,
+                upsert: true,// Create a document if one isn't found. Required for `setDefaultsOnInsert`
+                setDefaultsOnInsert: true
+            };
 
-        var query = {};
-        var update = req.body;
-        var options = {
-            // Return the document after updates are applied
-            new: true,
-            // Create a document if one isn't found. Required
-            // for `setDefaultsOnInsert`
-            upsert: true,
-            setDefaultsOnInsert: true
-        };
+            store = Store.findOneAndUpdate(query, update, options, function (error, doc) {
+                if(!error) {
+                    console.log('doc =>',doc)
+                } else {
+                    console.log('error with findOneAndUpdate => ', error)
+                }
+            });
 
+        } else { // new record
+            delete req.body._id;
+            store = await (new Store (req.body)).save();
 
-        const store = Store.findOneAndUpdate(query, update, options, function (error, doc) {
-            if(!error) {
-                console.log(doc)
-            } else {
-                console.log('error with findOneAndUpdate => ', error)
-            }
+        }
 
-        });
         res.json(store);
     };
 

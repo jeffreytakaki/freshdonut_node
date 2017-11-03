@@ -7,11 +7,14 @@ export const fetchUser = () => async dispatch => {
 }
 
 export const addStore = (state) => async dispatch => {
-    console.log(state)
+    console.log('addStore state => ', state)
     const res = await axios.post('/api/store/addStore', {
+        _id: state._id,
         name: state.name,
         description: state.description
     });
+
+    console.log('res =>', res)
     dispatch({type: ADD_STORE, payload: res.data})
 }
 
@@ -47,6 +50,9 @@ export const addDonut = (state) => async dispatch => {
     });
 
     console.log('res.data => ', res.data)
+    dispatch({type: GET_USER_STORES, payload: res.data})
     dispatch({type: ADD_STORE, payload: res.data})
+
+
 }
 

@@ -31,6 +31,7 @@ class Stores extends React.Component {
                     key={Math.ceil(Math.random()*100)}
                     name={store.name}
                     description={store.description}
+                    showaccount = {false}
                 />
 
             )
@@ -61,6 +62,7 @@ class Stores extends React.Component {
 
 function mapStateToProps(state) {
     // get state from store and pass into Header as props
+
     return {
         stores: state.stores
     }

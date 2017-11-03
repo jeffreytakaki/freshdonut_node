@@ -33,7 +33,7 @@ class addStoreForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        this.props.addStore(this.state)
+        this.props.addUserStore(this.state)
     }
 
     render() {

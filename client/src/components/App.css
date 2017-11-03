@@ -16,3 +16,12 @@ header {
 .logo {
   height: 80px;
 }
+
+
+.donut-item {
+  text-align: center;
+  background-color: rgba(255, 102, 102,.3);
+  padding: 5% 2.5%;
+  margin: 1%;
+  border-radius: 15px;
+}
