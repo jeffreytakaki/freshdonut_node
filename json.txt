@@ -1,0 +1,64 @@
+API response formats from mongoose/mongodb
+
+GET - getStores
+[
+    {
+        created: "2017-11-04T22:57:48.002Z"
+        description: "Fordakids!"
+        donuts:[]
+        id: "59fe45ec1efba31ea2328424"
+        name: "Carolyn's Sweet Treats"
+        owner: "59e6da7c3e3099357b727442"
+        __v:0_id: "59fe45ec1efba31ea2328424"
+    }
+]
+
+
+GET - getUserStores
+
+[{"_id":"59fe45ec1efba31ea2328424","name":"Carolyn's Sweet Treats","description":"Fordakids!","owner":"59e6da7c3e3099357b727442","__v":0,"donuts":[],"created":"2017-11-04T22:57:48.002Z","id":"59fe45ec1efba31ea2328424"},{"_id":"59fe96f8818e6b36fa45025e","name":"yoyo","description":"yoyo","owner":"59e6da7c3e3099357b727442","__v":0,"donuts":[],"created":"2017-11-05T04:43:36.940Z","id":"59fe96f8818e6b36fa45025e"},{"_id":"59fe977df3ba313790df758e","name":"boat","description":"i want a boat","owner":"59e6da7c3e3099357b727442","__v":0,"donuts":[],"created":"2017-11-05T04:45:49.946Z","id":"59fe977df3ba313790df758e"}]
+
+
+POST - deleteStore
+
+{
+    created:"2017-11-04T22:57:48.002Z",
+    description:"Fordakids!",
+    donuts:[],
+    id:"59fe45ec1efba31ea2328424",
+    name:"Carolyn's Sweet Treats",
+    owner:"59e6da7c3e3099357b727442",
+    __v:0,
+    _id:"59fe45ec1efba31ea2328424"
+}
+
+POST - addStore
+
+{
+    created:"2017-11-04T22:57:48.002Z",
+    description:"Fordakids!",
+    donuts:[],
+    id:"59fe45ec1efba31ea2328424",
+    name:"Carolyn's Sweet Treats",
+    owner:"59e6da7c3e3099357b727442",
+    __v:0,
+    _id:"59fe45ec1efba31ea2328424"
+}
+
+
+POST -updateStore (same as addStore)
+
+nothing gets returned.
+
+POST - addDonut
+
+{
+    created: "2017-11-06T16:34:05.945Z",
+    description:"Frank is the best helper(sleepy!)",
+    donuts:[],
+    id:"5a008efdc071bb0bb07d7cb3",
+    name:"Carolyn's Sweet Treats!",
+    owner:"59e6da7c3e3099357b727442",
+    __v:0,
+    _id:"5a008efdc071bb0bb07d7cb3"
+}

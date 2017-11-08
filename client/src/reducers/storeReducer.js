@@ -1,14 +1,27 @@
-import { ADD_STORE, GET_STORES } from '../actions/types'
+import { ADD_STORE, GET_STORES, GET_USER_STORES } from '../actions/types'
+import { updateObject, convertToArray } from '../Helpers/reducerHelpers'
 
 export default function(state = {}, action) {
 
     switch(action.type) {
         case ADD_STORE:
-            console.log('state', state)
-            console.log('action', action)
-            console.log('actionpayload', action.payload)
+            // let stateAsArray = (Object.prototype.toString.call( state ) === '[object Array]') ?
+            //         state :
+            //         convertToArray(state);
+            //
+            // let stores = stateAsArray.concat({
+            //     _id: action.payload._id,
+            //     name: action.payload.name,
+            //     description: action.payload.description,
+            //
+            // })
+            //
+            // return updateObject(state, stores);
+
             return action.payload || false;
         case GET_STORES:
+            return action.payload || false;
+        case GET_USER_STORES:
             return action.payload || false;
         default:
             return state;

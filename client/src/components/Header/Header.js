@@ -11,12 +11,12 @@ class Header extends React.Component {
                 return;
             case false:
                 return (
-                        <div key="1" className="col-lg-4"><a href="/auth/google">Login with Google</a></div>
+                        <div key="1" className="col-sm-4"><a href="/auth/google" className="btn btn-primary" >Login with Google</a></div>
                 )
             default:
                 return [
-                    <div key="1" className="col-lg-6"><Link to="/account">Account</Link></div>,
-                    <div key="2" className="col-lg-6"><a href="/api/logout">Logout</a></div>
+                    <div key="1" className="col-6 col-sm-4" ><Link to="/account" className="btn btn-primary">Account</Link></div>,
+                    <div key="2" className="col-6 col-sm-4 logout"><a href="/api/logout" >Logout</a></div>
                 ]
         }
     }
@@ -25,17 +25,14 @@ class Header extends React.Component {
                 <header>
                     <div className="container-fluid">
                         <div className="row">
-                            <div className="col-lg-2">
-                                <div className="logo">
-                                    <Link to="/"><img src="/images/freshdonut_logo.png" alt="Fresh Donut"/></Link>
-                                </div>
-                            </div>
-                            <div className="col-lg-6">
-
-                            </div>
-                            <div className="col-lg-4">
+                            <div className="col-12 col-sm-8 order-sm-2">
                                 <div className="row account-container">
                                     {this.renderContent()}
+                                </div>
+                            </div>
+                            <div className="col-12 col-sm-4 order-sm-1 logo-container">
+                                <div className="logo">
+                                    <Link to="/"><img src="/images/freshdonut_logo.png" alt="Fresh Donut"/></Link>
                                 </div>
                             </div>
                         </div>

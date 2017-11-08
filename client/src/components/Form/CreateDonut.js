@@ -30,8 +30,7 @@ class addDonutForm extends React.Component {
 
     handleDonutSubmit(event) {
         event.preventDefault();
-        this.props.addDonut(this.state)
-
+        this.props.addUserDonut(this.state)
     }
 
     render() {

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER, ADD_STORE, GET_STORES, GET_USER_STORES, DELETE_STORE } from './types'
+import { FETCH_USER, ADD_STORE, ADD_USER_STORE, GET_STORES, GET_USER_STORES, DELETE_STORE } from './types'
 
 export const fetchUser = () => async dispatch => {
     const res = await axios.get('/api/current_user');
@@ -7,15 +7,13 @@ export const fetchUser = () => async dispatch => {
 }
 
 export const addStore = (state) => async dispatch => {
-    console.log('addStore state => ', state)
     const res = await axios.post('/api/store/addStore', {
         _id: state._id,
         name: state.name,
         description: state.description
     });
-
-    console.log('res =>', res)
     dispatch({type: ADD_STORE, payload: res.data})
+    dispatch({type: ADD_USER_STORE, payload: res.data})
 }
 
 export const getStores = () => async dispatch => {
@@ -34,6 +32,7 @@ export const deleteStore = (id) => async dispatch => {
     });
 
     if(res.data) {
+        console.log('delete store', res.data)
         const stores = await axios.get('/api/stores/user'); //:id can be anything. server side will validate user is signed in
         dispatch({type: GET_USER_STORES, payload: stores.data})
     } else {
@@ -49,9 +48,10 @@ export const addDonut = (state) => async dispatch => {
         description: state.description
     });
 
-    console.log('res.data => ', res.data)
+    console.log('res.data => ', res.data);
+
     dispatch({type: GET_USER_STORES, payload: res.data})
-    dispatch({type: ADD_STORE, payload: res.data})
+    //dispatch({type: ADD_STORE, payload: res.data})
 
 
 }

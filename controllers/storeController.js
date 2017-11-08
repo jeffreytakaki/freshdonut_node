@@ -13,7 +13,7 @@ const User = mongoose.model('User');
         res.json(stores)
     }
 
-    exports.createStore = async (req, res) => {
+    exports.createStore = async (req, res, next) => {
         req.body.owner = req.user._id;
         let store;
 
@@ -37,11 +37,11 @@ const User = mongoose.model('User');
 
         } else { // new record
             delete req.body._id;
-            store = await (new Store (req.body)).save();
-
+            store = await (new Store (req.body)).save()
         }
+        console.log(store)
+        res.json(store)
 
-        res.json(store);
     };
 
     exports.updateStore = async (req, res) => {
@@ -53,6 +53,7 @@ const User = mongoose.model('User');
     exports.deleteStore = async (req, res) => {
         const store = await Store.findByIdAndRemove(req.body.storeid, (err, success) => {
             if(!err) {
+                console.log(success)
                 res.json(success);
             } else {
                 res.json({'message':'there was an error deleting. try again'})

@@ -8,14 +8,43 @@ img {
   width: auto;
 }
 
+/* Header Styling */
 header {
   height: auto;
   display: block;
 }
 
-.logo {
+header .logo-container {
+  text-align: center;
+}
+header .logo-container .logo {
   height: 80px;
 }
+
+header .account-container {
+  text-align: center;
+  padding-top: 5px;
+}
+header .account-container .logout {
+  padding-top: 5px;
+}
+
+
+@media (min-width: 576px) {
+  header .logo-container {
+    text-align: left;
+  }
+
+  header .account-container {
+    text-align: right;
+  }
+}
+
+
+
+
+
+
 
 
 .donut-item {

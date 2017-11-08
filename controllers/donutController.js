@@ -3,6 +3,8 @@ const Store = mongoose.model('Store');
 const User = mongoose.model('User');
 const Donut = mongoose.model('Donut');
 
+const storeController = require('./storeController')
+
 
 exports.addDonut = async (req, res) => {
     // find user
@@ -14,5 +16,7 @@ exports.addDonut = async (req, res) => {
         store.save();
     })
 
-    res.json(donut)
+    console.log('donut => ', donut)
+
+    res.json(donut) // returns back new document
 }

@@ -12,8 +12,8 @@ class AccountMain extends React.Component {
         this.deleteStore = this.deleteStore.bind(this)
         this.addStore = this.addStore.bind(this)
     }
-    componentWillMount() {
-
+    componentDidMount() {
+        console.log('componentDidMount', this.props.userStores)
         this.props.getUserStores()
     }
 
@@ -23,8 +23,8 @@ class AccountMain extends React.Component {
             let stores = collection.map((store) =>
 
                     <StoreItem
-                            key={store.id}
-                            storeId={store.id}
+                            key={store._id}
+                            storeId={store._id}
                             name={store.name}
                             description={store.description}
                             deleteStore={this.deleteStore}
@@ -53,6 +53,7 @@ class AccountMain extends React.Component {
     }
 
     render() {
+        console.log('render function', this.props.userStores)
         return (
                 <div className="account-container">
                     <AddForm addUserStore={this.addStore} />
