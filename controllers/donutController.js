@@ -7,16 +7,17 @@ const storeController = require('./storeController')
 
 
 exports.addDonut = async (req, res) => {
-    // find user
-    // update user donuts array
-    console.log('req.user._id -> ', req.body)
+    let saveDonut = {
+        name: req.body.name,
+        description: req.body.description
+    }
 
     const donut = await Store.findOne({_id: req.body._id}, (error, store) => {
-        store.donuts.push(req.body)
-        store.save();
+        if(!error) {
+            store.donuts.push(saveDonut)
+            store.save();
+        }
     })
-
-    console.log('donut => ', donut)
 
     res.json(donut) // returns back new document
 }

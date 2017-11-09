@@ -12,7 +12,10 @@ export const addStore = (state) => async dispatch => {
         name: state.name,
         description: state.description
     });
-    dispatch({type: ADD_STORE, payload: res.data})
+
+    console.log('res =>', res.data)
+    // dispatch({type: GET_USER_STORES, payload: res.data})
+    //dispatch({type: ADD_STORE, payload: res.data})
     dispatch({type: ADD_USER_STORE, payload: res.data})
 }
 

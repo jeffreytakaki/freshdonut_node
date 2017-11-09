@@ -9,18 +9,11 @@ export default function(state = {}, action) {
             //         state :
             //         convertToArray(state);
             //
-            // let stores = stateAsArray.concat({
-            //     _id: action.payload._id,
-            //     name: action.payload.name,
-            //     description: action.payload.description,
-            //
-            // })
-            //     // console.log('userstore return', userstores)
-            //     // return userstores;
-            //
-            // // console.log('userstores',userstores)
-            // //
-            // return updateObject(state, stores);
+            let stores = state.concat(action.payload)
+
+            return updateObject(state, stores);
+
+            // return stores || false;
 
 
             return action.payload || false;

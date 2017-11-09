@@ -17,7 +17,7 @@ const StoreItem = (store) => (
                             <Link to={`/store/${store.storeId}`}>Edit Store</Link>
                         </div>
                         <div className="col-lg-6">
-                            <button onClick={() => store.deleteStore(store.storeId)}>Delete Store</button>
+                            <button className="btn btn-danger" onClick={() => store.deleteStore(store.storeId)}>Delete Store</button>
                         </div>
 
                     </div>
