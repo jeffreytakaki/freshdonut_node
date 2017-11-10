@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER, ADD_STORE, ADD_USER_STORE, GET_STORES, GET_USER_STORES, DELETE_STORE } from './types'
+import { FETCH_USER, ADD_USER_DONUT, ADD_USER_STORE, GET_STORES, GET_USER_STORES, DELETE_STORE } from './types'
 
 export const fetchUser = () => async dispatch => {
     const res = await axios.get('/api/current_user');
@@ -53,7 +53,7 @@ export const addDonut = (state) => async dispatch => {
 
     console.log('res.data => ', res.data);
 
-    dispatch({type: GET_USER_STORES, payload: res.data})
+    dispatch({type: ADD_USER_DONUT, payload: res.data})
     //dispatch({type: ADD_STORE, payload: res.data})
 
 

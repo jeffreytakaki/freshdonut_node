@@ -1,4 +1,4 @@
-import { GET_USER_STORES, ADD_USER_STORE, DELETE_STORE } from '../actions/types'
+import { GET_USER_STORES, ADD_USER_STORE, DELETE_STORE, ADD_USER_DONUT } from '../actions/types'
 import { updateObject, convertToArray } from '../Helpers/reducerHelpers'
 
 export default function(state = {}, action) {
@@ -12,6 +12,15 @@ export default function(state = {}, action) {
             let stores = state.concat(action.payload)
 
             return updateObject(state, stores);
+
+            // return stores || false;
+
+
+            return action.payload || false;
+        case ADD_USER_DONUT:
+            // let stores = state.concat(action.payload)
+
+            // return updateObject(state, stores);
 
             // return stores || false;
 
