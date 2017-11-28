@@ -54,8 +54,6 @@ export const addDonut = (state) => async dispatch => {
     console.log('res.data => ', res.data);
 
     dispatch({type: ADD_USER_DONUT, payload: res.data})
-    //dispatch({type: ADD_STORE, payload: res.data})
-
 
 }
 

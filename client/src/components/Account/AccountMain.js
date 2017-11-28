@@ -53,9 +53,12 @@ class AccountMain extends React.Component {
     }
 
     render() {
-        console.log('render function', this.props.userStores)
         return (
                 <div className="account-container">
+                    <div className="account-title">
+                        <h1>{this.props.auth.displayName}'s Stores</h1>
+                    </div>
+
                     <AddForm addUserStore={this.addStore} />
                     {this.renderStores()}
                 </div>
@@ -65,7 +68,6 @@ class AccountMain extends React.Component {
 
 function mapStateToProps(state) {
     // get state from store and pass into Header as props
-    console.log('mapStateToProps User Stores =>', state)
     return {
         auth: state.auth,
         userStores: state.userStores

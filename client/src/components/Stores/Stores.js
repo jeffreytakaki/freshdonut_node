@@ -50,10 +50,6 @@ class Stores extends React.Component {
     render() {
         return (
                 <div className="stores-container">
-                    <div className="">
-                        Stores Section
-                    </div>
-
                     {this.renderStores()}
                 </div>
         );

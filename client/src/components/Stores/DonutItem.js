@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
 
 const DonutItem = (store) => (
         <div className="col-lg-4">

@@ -32,12 +32,26 @@ class Store extends React.Component {
         }
     }
 
+    componentDidMount() {
+
+        console.log('component did mmount', this.props.userStores)
+        let stores = this.props.userStores;
+        let findstore = (stores.length) ?
+                findStoreFromState(this.props.location.pathname, this.props.userStores) :
+                false;
+        if(findstore) {
+            this.setState({
+                storeitem: findstore
+            })
+        }
+    }
     addStore(store) {
+
         this.props.addStore(store)
     }
 
     addDonut(donut) {
-
+        console.log('store donut =>', donut)
         this.props.addDonut(donut)
     }
 
@@ -61,7 +75,9 @@ class Store extends React.Component {
     render() {
         return (
                 <div className="stores-container">
-                    <h1>{this.state.storeitem.name}</h1>
+                    <div className="account-title">
+                        <h1>{this.state.storeitem.name}</h1>
+                    </div>
                     <AddForm addUserStore={this.addStore} storeitem={this.state.storeitem} />
                     <AddDonutForm addUserDonut={this.addDonut} storeitem={this.state.storeitem}/>
                     { this.renderDonuts(this.state.storeitem) }
@@ -74,8 +90,9 @@ class Store extends React.Component {
 
 function mapStateToProps(state) {
     // get state from store and pass into Header as props
-    console.log('mapstatetoprops', state.userStores)
+console.log('store mapto props', state)
     return {
+        auth: state.auth,
         userStores: state.userStores
     }
 }

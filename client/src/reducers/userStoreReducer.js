@@ -13,19 +13,18 @@ export default function(state = {}, action) {
 
             return updateObject(state, stores);
 
-            // return stores || false;
-
-
-            return action.payload || false;
         case ADD_USER_DONUT:
-            // let stores = state.concat(action.payload)
 
-            // return updateObject(state, stores);
+            let duplicated_stores = Object.assign([], state);
 
-            // return stores || false;
+            for(var i=0; i < duplicated_stores.length; i++) {
+                if(duplicated_stores[i].id == action.payload.id) {
+                    duplicated_stores[i].donuts = action.payload.donuts
+                }
+            }
 
+            return updateObject([],state, duplicated_stores);
 
-            return action.payload || false;
         case GET_USER_STORES:
             return action.payload || false;
 

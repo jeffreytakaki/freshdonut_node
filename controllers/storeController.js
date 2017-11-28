@@ -9,7 +9,9 @@ const User = mongoose.model('User');
     };
 
     exports.getStoresByOwner = async (req, res) => {
-        var stores = await Store.find({owner: req.user._id})
+        console.log('getStoresByOnwer user =>', req.user)
+        let stores = await Store.find({owner: req.user._id})
+        // console.log('getStoresByOnwer =>', stores)
         res.json(stores)
     }
 
@@ -27,8 +29,6 @@ const User = mongoose.model('User');
         };
 
         let store = await Store.findOneAndUpdate(query, update, options);
-
-        console.log('store =>',store);
 
         res.json(store)
     };
