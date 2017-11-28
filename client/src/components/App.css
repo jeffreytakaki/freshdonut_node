@@ -22,9 +22,28 @@ header .logo-container .logo {
 }
 
 header .account-container {
-  text-align: center;
   padding-top: 5px;
 }
+
+header .header-loggedin-container {
+  list-style-type: none;
+  width: 100%;
+}
+
+header ul.header-loggedin-container li{
+  display: inline-block;
+  margin-right: 5%;
+}
+
+header ul.header-loggedin-container li:last-child{
+  margin-right: 0;
+}
+
+
+
+
+
+
 header .account-container .logout {
   padding-top: 5px;
 }
@@ -35,8 +54,19 @@ header .account-container .logout {
     text-align: left;
   }
 
-  header .account-container {
+  header .header-loggedin-container {
     text-align: right;
+    list-style-type: none;
+    width: 100%;
+  }
+
+  header ul.header-loggedin-container li{
+    display: inline-block;
+    margin-right: 5%;
+  }
+
+  header ul.header-loggedin-container li:last-child{
+    margin-right: 0;
   }
 }
 

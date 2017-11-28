@@ -5,13 +5,9 @@ export default function(state = {}, action) {
 
     switch(action.type) {
         case ADD_USER_STORE:
-            // let stateAsArray = (Object.prototype.toString.call( state ) === '[object Array]') ?
-            //         state :
-            //         convertToArray(state);
-            //
             let stores = state.concat(action.payload)
 
-            return updateObject(state, stores);
+            return updateObject([],state, stores);
 
         case ADD_USER_DONUT:
 

@@ -12,6 +12,10 @@ const storeSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    address: {
+        lat: String,
+        lng: String
+    },
     description: {
         type: String,
         trim: true

@@ -9,6 +9,7 @@ import Header from './Header/Header'
 import Stores from './Stores/Stores'
 import Store from './Stores/Store'
 import AccountMain from './Account/AccountMain'
+import Lightbox from './Lightbox/Lightbox'
 
 class App extends Component {
     componentDidMount() {
@@ -24,6 +25,7 @@ class App extends Component {
                     <BrowserRouter>
                         <div>
                             <Header />
+                            <Lightbox />
                             <Route path="/" component={Stores} exact={true} />
                             <Route path="/account" component={AccountMain} exact={true}/>
                             <Route path="/store/:id" component={Store} exact={true}/>

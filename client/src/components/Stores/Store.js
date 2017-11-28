@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions'
+
+import SearchAddress from '../Address/SearchAddress'
 import AddForm from '../Form/CreateStore'
 import AddDonutForm from '../Form/CreateDonut'
 import {findStoreFromState} from '../../Helpers/findStore'
@@ -78,6 +80,7 @@ class Store extends React.Component {
                     <div className="account-title">
                         <h1>{this.state.storeitem.name}</h1>
                     </div>
+                    <SearchAddress />
                     <AddForm addUserStore={this.addStore} storeitem={this.state.storeitem} />
                     <AddDonutForm addUserDonut={this.addDonut} storeitem={this.state.storeitem}/>
                     { this.renderDonuts(this.state.storeitem) }
